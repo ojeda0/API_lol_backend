@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RegionService {
@@ -18,5 +19,13 @@ public class RegionService {
         return this.regionRepository.findAll();
 
     }
+
+    public Optional<Region> findById(Long id) {
+
+        return this.regionRepository.findById(id);
+
+    }
+
+    // Falta el último find de la consulta del 1-5
 
 }
