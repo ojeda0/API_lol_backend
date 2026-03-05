@@ -21,7 +21,7 @@ public class CampeonController {
         return ResponseEntity.ok(this.campeonService.findAll());
     }
 
-    //Consulta GET para ver camepones por regiones
+    //Consulta GET para ver campeones por regiones
     @GetMapping("region/{nombreReg}")
     public ResponseEntity<List<Campeon>> findByRegion(@PathVariable String nombreReg) {
 
@@ -32,10 +32,8 @@ public class CampeonController {
     //Consulta GET para ver los campeones por linea
     @GetMapping("/posicion/{linea}")
     public ResponseEntity<List<Campeon>> findByLinea(@PathVariable String linea) {
-        List<Campeon> filtrados = this.campeonService.findAll().stream()
-                .filter(c -> c.getLinea().equalsIgnoreCase(linea))
-                .toList();
-        return ResponseEntity.ok(filtrados);
+
+        return ResponseEntity.ok(this.campeonService.findByLinea(linea));
     }
 
     //Consulta POST para agregar un nuevo campeon

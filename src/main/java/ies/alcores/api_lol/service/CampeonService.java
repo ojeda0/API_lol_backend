@@ -13,14 +13,16 @@ public class CampeonService {
     @Autowired
     private CampeonRepository campeonRepository;
 
-    public List<Campeon> findAll(){
-        return this.campeonRepository.findAll();
+    public List<Campeon> findAll() {
+        return this.campeonRepository.consultarTodoElPlantel();
     }
 
     public List<Campeon> findByRegion(final String region) {
+        return this.campeonRepository.buscarPorNombreRegion(region);
+    }
 
-        return this.findAll().stream().filter(a -> a.getRegion().getNombre().equalsIgnoreCase(region)).toList();
-
+    public List<Campeon> findByLinea(final String linea) {
+        return this.campeonRepository.buscarPorPosicion(linea);
     }
 
     public Campeon agregarCampeon(Campeon campeon) {
