@@ -23,4 +23,17 @@ public class CampeonService {
 
     }
 
+    public Campeon agregarCampeon(Campeon campeon) {
+        return this.campeonRepository.save(campeon);
+    }
+
+    public boolean eliminarCampeon(long id) {
+        try {
+            this.campeonRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
